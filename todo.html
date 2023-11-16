@@ -8,6 +8,37 @@
     <!-- Podłączenie zewnętrznego pliku JS -->
     <script defer src="todo.js"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            cursor: pointer;
+        }
        /* Dodajemy styl do wyróżnienia wyszukiwanej frazy */
         .highlight {
             background-color: yellow;
@@ -35,8 +66,18 @@
     <button onclick="addTask()">Dodaj zadanie</button>
 
     <script>
-        <!-- INICJALIZACJA LISTY ZADAŃ Z LOCAL STORAGE -->
-        initializeTaskList();
+        // Pobranie pola wyszukiwania
+        const searchInput = document.getElementById('search');
+        // Dodanie obsługi zdarznia dla pola wyszukiwania
+        searchInput.addEventListener('input', function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            todo.filterTasks(searchTerm);
+        });
+
+       // Wywołanie metody draw z obiektu Todo po załadowaniu strony
+       todo.draw();
+       // Inicjalizacja listy zadań z Local Storage
+       initializeTaskList();
     </script>
 </body>
 </html>
