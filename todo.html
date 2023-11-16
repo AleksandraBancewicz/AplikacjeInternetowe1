@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lista ToDo</title>
+
+    <!-- Podłączenie zewnętrznego pliku JS -->
+    <script defer src="todo.js"></script>
+    <style>
+       /* Dodajemy styl do wyróżnienia wyszukiwanej frazy */
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista ToDo</h1>
+
+    <!-- Pole wyszukiwarki -->
+    <label for="search">Wyszukaj: </label>
+    <input type="text" id="search" placeholder="Wpisz frazę">
+
+    <!-- Lista zadań -->
+    <ul id="taskList">
+
+        <!-- TUTAJ DODAJEMY DYNAMICZNE ELEMENTY LISTY -->
+
+    </ul>
+
+    <!-- POLE DODAWANIA NOWYCH ZADAŃ -->
+    <label for="newTask">Dodaj nowe zadanie: </label>
+    <input type ="text" id="newTask" placeholder="Nowe zadanie" minlength="3" maxlength="255" required>
+    <input type="datetime-local" id="dueData" required>
+    <button onclick="addTask()">Dodaj zadanie</button>
+
+    <script>
+        <!-- INICJALIZACJA LISTY ZADAŃ Z LOCAL STORAGE -->
+        initializeTaskList();
+    </script>
+</body>
+</html>
